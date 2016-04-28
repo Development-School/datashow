@@ -1,0 +1,21 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title><?= (isset($titulo) and $titulo) ? $titulo : '' ?></title>
+  <!-- META DADOS -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png') ?> ">
+  <!-- STYLE CSS-->
+  <?= $css ?>
+  <?= $js ?>
+</head>
+<body>
+<div id="wrap">
+  <?= $layout['header'] ?>
+  <?= $layout['content'] ?>
+</div>
+<?= $layout['footer'] ?>
+</body>
+</html>

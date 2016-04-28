@@ -1,0 +1,39 @@
+<?php $local = strtolower($this->router->class) ?>
+<!--Barra de Navegação -->
+<header class="container">
+<h4 class="text-right text-capitalize">Olá, <?php echo strtolower($this->session->nome);?></h4>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="font-size: 14px;" href="<?php echo base_url('/inicio');?>">
+      <img style="height: 100%;margin-right: 5px;" alt="Brand" class="pull-left" src="<?php echo base_url('assets/img/logo.png') ?>">
+      </a>
+    </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li class="<?php echo !($local == 'inicio') ?: 'active' ?>">
+        <a href="<?php echo base_url('inicio');?>"><i class="fa fa-home fa-fw fa-lg hidden-sm"></i>&nbsp;Início</a>
+      </li>
+      <li class="<?php echo !($local == 'professores') ?: 'active' ?>">
+        <a href="<?php echo base_url('professores');?>"><i class="fa fa-graduation-cap fa-fw fa-lg hidden-sm"></i>&nbsp;Professores</a>
+      </li>
+      <li class="<?php echo !($local == 'datashows') ?: 'active' ?>">
+        <a href="<?php echo base_url('datashows');?>"><i class="fa fa-video-camera fa-fw fa-lg hidden-sm"></i>&nbsp;Datashows</a>
+      </li>
+      <li class="<?php echo !($local == 'relatorios') ?: 'active' ?>">
+        <a href="<?php echo base_url('relatorios');?>"><i class="fa fa-bar-chart fa-fw fa-lg hidden-sm"></i>&nbsp;Relatórios</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="<?php echo base_url('inicio/sair');?>">Sair&nbsp;<i class="fa fa-sign-out fa-fw fa-lg hidden-sm"></i></a></li>
+    </ul>
+  </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav><!-- final da Barra de Navegação -->
+</header>

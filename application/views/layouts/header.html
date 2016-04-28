@@ -1,0 +1,20 @@
+<header>
+<div class="container">
+  <div class="row">
+  <h1 class="titulo text-center">
+    <img src="<?php echo base_url('assets/img/logo.svg') ?>" class="logo" >
+    <a href="<?php echo base_url('') ?>"><?= $titulo ?></a>
+  </h1>
+    <?php if (strtolower($this->router->class) == 'cadastrar'): ?>
+      <?php $local = $this->uri->segment(2);?>
+      <div id="crumbs" class="col-xs-12">
+        <ul>
+          <li><a class="<?= ($local != 'pessoa') ?: 'active' ?>" href="<?= base_url('cadastrar/pessoa') ?>">1ª Etapa</a></li>
+          <li><a class="<?= ($local != 'veiculo') ?: 'active' ?>" href="<?= base_url('cadastrar/veiculo') ?>">2ª Etapa</a></li>
+          <li><a class="<?= ($local != 'confirmar') ?: 'active' ?>" href="<?= base_url('cadastrar/confirmar') ?>">3ª Etapa</a></li>
+        </ul>
+      </div>
+   <?php endif ?>
+  </div>
+</div>
+</header>

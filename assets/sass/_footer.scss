@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+$height-footer:150px;
+$height-footer-negative:-$height-footer;
+/*Rodapé do Site*/
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto $height-footer-negative;
+  /* Pad bottom by footer height */
+  padding: 0 0 $height-footer;
+}
+
+footer{
+  bottom: 0px;
+  width: 100%;
+  height: $height-footer;
+  background-color: rgb(77, 77, 77);
+  color: #fff;
+  .footer{
+    padding-top:32px;
+    margin:0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .logo-pitagoras{
+    margin-top: 20px;
+    float: left;
+  }
+  .logo-kroton{
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+    width: 82px;
+    height: 60px;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+      &:hover{
+      color: white;
+      text-decoration: underline;
+    }
+  }
+  .esc2, .esc2 img{
+    float: right;
+  }
+}
+@media screen and (max-width: $screen-xs-max) {
+  footer{
+    .esc2 img{
+      padding-top: 30px;
+    }
+  }
+}

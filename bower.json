@@ -1,0 +1,25 @@
+{
+  "name": "datashow",
+  "description": "Sistema de Datashow da Facudade Pitagoras",
+  "main": "",
+  "authors": [
+    "Escritorio Escola"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "jquery": "^2.2.3",
+    "font-awesome": "fontawesome#^4.6.1",
+    "jquery-mask-plugin": "jQuery-Mask-Plugin#^1.14.0",
+    "Chart.js": "Chart-js#^2.0.2"
+  }
+}

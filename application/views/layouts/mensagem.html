@@ -1,0 +1,26 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<script type="text/javascript">
+/* Este codigo javascript redireciona a pagina para a home do site apos 3 segundos*/
+setTimeout(function(){
+  window.location.href = "<?php echo base_url($local)?>";
+},<?php isset($tempo) and print($tempo) or print ("4000"); ?>)
+</script>
+<main class="container">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="jumbotron">
+			<?php if (isset($erro) and $erro): ?>
+				<h2 class="mensagem">
+					<i class="fa fa-exclamation-triangle fa-lg"></i>&nbsp;&nbsp;
+					<span class="label label-danger"><?php echo $mensagem; ?></span>
+				</h2>
+			<?php else: ?>
+				<h2 class="mensagem">
+					<i class="fa fa-check fa-lg"></i>&nbsp;&nbsp;
+					<span class="label label-success"><?php echo $mensagem; ?></span>
+				</h2>
+			<?php endif; ?>
+			</div>
+		</div>
+	</div>
+</main>

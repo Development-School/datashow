@@ -1,0 +1,104 @@
+//colors
+$color_primary: #ded1bf;
+$black: #000;
+$color_bg: #ffe8d4;
+$color_active: #ffcc80;
+
+#crumbs {
+  text-align: center;
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    li {
+      flex-grow: 1;
+      margin-right: 15px;
+      &:last-child {
+        margin-right: 0;
+        a {
+          padding-right: 80px;
+          //Instead of the line below you could use @include border-top-right-radius($radius)
+          border-top-right-radius: 10px;
+          //Instead of the line below you could use @include border-bottom-right-radius($radius)
+          border-bottom-right-radius: 10px;
+          &:after {
+            display: none;
+          }
+        }
+      }
+      a {
+        float: left;
+        height: 80px;
+        background: $color_primary;
+        text-align: center;
+        padding: 30px 40px 0 80px;
+        position: relative;
+        margin: 0 10px 0 0;
+        font-size: 20px;
+        text-decoration: none;
+        color: $black;
+        width: 100%;
+        &:after {
+          content: "";
+          border-top: 40px solid transparent;
+          border-bottom: 40px solid transparent;
+          border-left: 40px solid $color_primary;
+          position: absolute;
+          right: -40px;
+          top: 0;
+          z-index: 1;
+        }
+        &:before {
+          content: "";
+          border-top: 40px solid transparent;
+          border-bottom: 40px solid transparent;
+          border-left: 40px solid $color_bg;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        &:hover {
+          background: $color_active;
+          &:after {
+            border-left-color: $color_active;
+          }
+        }
+      }
+      .active {
+        background: $color_active;
+        &:after {
+          border-left-color: $color_active;
+        }
+      }
+      &:first-child a {
+        //Instead of the line below you could use @include border-top-left-radius($radius)
+        border-top-left-radius: 10px;
+        //Instead of the line below you could use @include border-bottom-left-radius($radius)
+        border-bottom-left-radius: 10px;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $screen-xs-max) {
+  #crumbs {
+    ul {
+      li{
+        &:last-child {
+          a{
+            padding-right: 30px;
+          }
+        }
+        a {
+          margin: 0 10px 0 0;
+          padding: 25px 0 0 30px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

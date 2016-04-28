@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <form class="navbar-form navbar-right pull-right" role="search" action="<?= base_url('professores/busca') ?>" method="post" accept-charset="utf-8">
+      <div class="input-group input-group-lg">
+       <?php
+        $data = array(
+            'type'  => 'text',
+            'name'  => 'nome',
+            'id'    => 'nome',
+            'value' => set_value('nome'),
+            'class' => 'form-control',
+            'placeholder' => 'Pesquisa por Nome',
+            'required' => 'required'
+          );
+        echo form_input($data); ?>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Pesquisar</button>
+      </span>
+      </div>
+    </form>
+
+    <h2>Tabela de Professores</h2>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Email</th>
+              <th>Abrir</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php (strtolower($this->router->method) == 'busca') ?
+            $i = $this->uri->segment(4) :
+            $i = $this->uri->segment(2); ?>
+          <?php foreach ($valores as $v):?>
+            <tr>
+              <th scope="row"><?= ++$i ?></th>
+              <td><?php echo $v->nome; ?></td>
+              <td><?php echo format_cpf($v->cpf); ?></td>
+              <td><?php echo $v->email; ?></td>
+              <td><a class="btn btn-primary" href="<?= base_url('admin/ver/'.$v->id);?>">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Abrir
+              </a></td>
+            </tr>
+          <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer text-center">
+      <?= $paginacao ?>
+    </div>
+  </div>
+</div>
