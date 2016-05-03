@@ -10,6 +10,11 @@ class Admin_model extends MY_Model
     $this->tabela2 = "veiculo";
   }
 
+  public function solicitacao($dados)
+  {
+    return $this->db->insert('solicitacao', $dados);
+  }
+
   public  function login($email, $senha)
   {
     $this->db->where('email',$email);
@@ -18,69 +23,41 @@ class Admin_model extends MY_Model
     return $usuario->first_row(); // RETORNA usuario
   }
 
-  public function totais($tipo)
+  public function getTudo($cpf, $patrimonio)
   {
-    if ($tipo != 'usuarios' && $tipo != 'veiculo' ) {
-      return false;
+    $cpf = preg_replace('/[^0-9]/','',$cpf);
+    $this->db->select('*');
+    $this->db->from('professores');
+    $this->db->where('cpf', $cpf);
+    $retorno['professor'] = $this->db->get()->first_row();
+    if ($retorno['professor'] == null) {
+      return null;
     }
     else{
-      return $this->db->count_all($tipo);
+      $this->db->select('*');
+      $this->db->from('datashows');
+      $this->db->where('patrimonio',$patrimonio);
+      $retorno['datashow'] = $this->db->get()->first_row();
+      if ($retorno['datashow'] == null) {
+        return null;
+      }
+      else{
+        return  $retorno;
+      }
     }
   }
 
-  public function getTudo($id)
+  public function getPagSolicitacao($nomebusca=null,$inicio=NULL,$quantidade=NULL)
   {
+    if ($inicio !== NULL) {
+      $this->db->limit($quantidade, $inicio);
+    }
     $this->db->select('*');
-    $this->db->from('usuarios');
-    $this->db->where('usuarios.id',$id);
-    $retorno['usuario'] = $this->db->get()->first_row();
-
-    $this->db->select('*');
-    $this->db->from('veiculo');
-    $this->db->where('veiculo.id_proprietario',$id);
-    $retorno['veiculos'] = $this->db->get()->result();
-    return  $retorno;
-  }
-
-  public function apagaTudo($id)
-  {
-    $this->db->where('id_proprietario', $id);
-    $this->db->delete('veiculo');
-    $this->db->where('id', $id);
-    $this->db->delete('usuarios');
-    return  $this->db->error();
-  }
-
-  public function apagaVeiculo($id)
-  {
-    $this->db->where('id', $id);
-    $this->db->delete('veiculo');
-    return  $this->db->error();
-  }
-
-  public function getAll_usuarios($tipo)
-  {
-    $this->db->select('*');
-    $this->db->from('usuarios');
-    $this->db->join('tipo_usuarios', 'tipo_usuarios.id = usuarios.id_tipo_usuario');
-    $this->db->where('tipo_usuarios.descricao',$tipo);
-    return $this->db->count_all_results();
-  }
-
-  public function getAll_veiculos($tipo)
-  {
-    $this->db->select('*');
-    $this->db->from('veiculo');
-    $this->db->join('tipo_veiculo', 'tipo_veiculo.id = veiculo.id_tipo_veiculo');
-    $this->db->where('tipo_veiculo.descricao',$tipo);
-    return $this->db->count_all_results();
-  }
-
-  public function getVeiculos()
-  {
-    $this->db->select('*');
-    $this->db->from('veiculo');
-    return $this->db->get()->result();
+    $this->db->from('solicitacao');
+    $this->db->join('professores', 'professores.id = solicitacao.id_professor', 'join');
+    $this->db->like('horario', $nomebusca);
+    $sql = $this->db->get();
+    return array('inicio' => $inicio, 'total' => $sql->num_rows(), 'dados' => $sql->result() );
   }
 
   public function getPagDatashow($nomebusca=null,$inicio=NULL,$quantidade=NULL)

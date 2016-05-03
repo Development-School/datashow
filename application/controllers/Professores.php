@@ -7,7 +7,6 @@ class Professores extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Admin_model', 'admin');
-
   }
 
   public function index($offset=0)
@@ -41,7 +40,7 @@ class Professores extends CI_Controller
     $get_users = $this->admin->getPagProfessor($busca, $get_paginacao['inicio'], $get_paginacao['qtidade_re']);
 
     if ($get_users['dados'] == null) {
-      setMensagem('admin/usuarios','Nenhum Resultado encontrado', true, 10000);
+      setMensagem('inicio','Nenhum Resultado encontrado', true, 10000);
     }
     else{
       $dados['valores'] = $get_users['dados'];

@@ -1,20 +1,98 @@
 <div class="container">
 <div class="panel panel-default">
-  <div class="panel-heading"><h2>Solicitação de Datashows</h2></div>
+  <div class="panel-heading"><h4>Solicitação de Datashows</h4></div>
   <div class="panel-body">
-    <form class="form-inline">
+    <?php echo form_open('inicio/solicitar', 'class="form-inline"'); ?>
       <div class="form-group form-group-lg col-sm-4">
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
-        <label class="control-label" for="exampleInputName2">&nbsp;CPF do Professor:&nbsp;&nbsp;</label>
+      <?php
+        $data = array(
+            'type'  => 'text',
+            'name'  => 'cpf',
+            'id'    => 'cpf',
+            'value' => set_value('cpf'),
+            'class' => 'form-control',
+            'style' => 'width: 100%',
+            'placeholder' => 'Digite o CPF do professsor'
+          );
+        echo form_input($data); ?>
+        <?php echo form_error('cpf'); ?>
       </div>
       <div class="form-group form-group-lg col-sm-4">
-        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-        <label class="control-label" for="exampleInputEmail2">&nbsp;Patrimonio:&nbsp;&nbsp;</label>
+      <?php
+        $data = array(
+            'type'  => 'text',
+            'name'  => 'patrimonio',
+            'id'    => 'patrimonio',
+            'value' => set_value('patrimonio'),
+            'class' => 'form-control',
+            'style' => 'width: 100%',
+            'placeholder' => 'Codigo de Barras'
+          );
+        echo form_input($data); ?>
+        <?php echo form_error('patrimonio'); ?>
       </div>
       <div class="col-sm-4">
         <button type="submit" class="btn btn-lg btn-primary col-sm-12">Solicitar</button>
       </div>
-    </form>
+    <?php echo form_close(); ?>
   </div>
 </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <form class="navbar-form navbar-right pull-right" role="search" action="<?= base_url('inicio/busca') ?>" method="post" accept-charset="utf-8">
+      <div class="input-group input-group-lg">
+       <?php
+        $data = array(
+            'type'  => 'text',
+            'name'  => 'horario',
+            'id'    => 'horario',
+            'value' => set_value('horario'),
+            'class' => 'form-control',
+            'placeholder' => 'Pesquisa por horario',
+            'required' => 'required'
+          );
+        echo form_input($data); ?>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Pesquisar</button>
+      </span>
+      </div>
+    </form>
+
+    <h2>Solicitações Feitas</h2>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Professor</th>
+              <th>Email</th>
+              <th>Horario</th>
+              <th>Turma</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php (strtolower($this->router->method) == 'busca') ?
+            $i = $this->uri->segment(4) :
+            $i = $this->uri->segment(2); ?>
+          <?php foreach ($valores as $v):?>
+            <tr>
+              <th scope="row"><?= ++$i ?></th>
+              <td><?php echo $v->nome; ?></td>
+              <td><?php echo $v->email; ?></td>
+              <td><?php echo $v->horario; ?></td>
+              <td><?php echo $v->turma; ?></td>
+              <td><span class="label label-success"><?php echo $v->status; ?></span></td>
+            </tr>
+          <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer text-center">
+      <?= $paginacao ?>
+    </div>
+  </div>
 </div>

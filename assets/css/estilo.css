@@ -3142,23 +3142,23 @@ tbody.collapse.in {
       margin-right: 0; } }
 
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7; }
+  background-color: #FAA61A;
+  border-color: #ee9605; }
   .navbar-default .navbar-brand {
-    color: #777; }
+    color: #fff; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-      color: #5e5e5e;
+      color: #e6e6e6;
       background-color: transparent; }
   .navbar-default .navbar-text {
-    color: #777; }
+    color: #fff; }
   .navbar-default .navbar-nav > li > a {
-    color: #777; }
+    color: #fff; }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color: #333;
       background-color: transparent; }
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #555;
-    background-color: #e7e7e7; }
+    background-color: #faa00b; }
   .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
     color: #ccc;
     background-color: transparent; }
@@ -3170,28 +3170,28 @@ tbody.collapse.in {
       background-color: #888; }
   .navbar-default .navbar-collapse,
   .navbar-default .navbar-form {
-    border-color: #e7e7e7; }
+    border-color: #ee9605; }
   .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    background-color: #e7e7e7;
+    background-color: #faa00b;
     color: #555; }
   @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-      color: #777; }
+      color: #fff; }
       .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #333;
         background-color: transparent; }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #555;
-      background-color: #e7e7e7; }
+      background-color: #faa00b; }
     .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #ccc;
       background-color: transparent; } }
   .navbar-default .navbar-link {
-    color: #777; }
+    color: #fff; }
     .navbar-default .navbar-link:hover {
       color: #333; }
   .navbar-default .btn-link {
-    color: #777; }
+    color: #fff; }
     .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
       color: #333; }
     .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus,
@@ -3290,7 +3290,7 @@ tbody.collapse.in {
       padding: 6px 12px;
       line-height: 1.42857;
       text-decoration: none;
-      color: #337ab7;
+      color: #969696;
       background-color: #fff;
       border: 1px solid #ddd;
       margin-left: -1px; }
@@ -3316,8 +3316,8 @@ tbody.collapse.in {
   .pagination > .active > span:focus {
     z-index: 3;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
+    background-color: #969696;
+    border-color: #969696;
     cursor: default; }
   .pagination > .disabled > span,
   .pagination > .disabled > span:hover,
@@ -5262,22 +5262,22 @@ button.close {
   background-color: #2e6da4; }
 
 .navbar-default {
-  background-image: -webkit-linear-gradient(top, white 0%, #f8f8f8 100%);
-  background-image: -o-linear-gradient(top, white 0%, #f8f8f8 100%);
-  background-image: linear-gradient(to bottom, white 0%, #f8f8f8 100%);
+  background-image: -webkit-linear-gradient(top, #fbb94c 0%, #FAA61A 100%);
+  background-image: -o-linear-gradient(top, #fbb94c 0%, #FAA61A 100%);
+  background-image: linear-gradient(to bottom, #fbb94c 0%, #FAA61A 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFF8F8F8', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFBB94C', endColorstr='#FFFAA61A', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075); }
   .navbar-default .navbar-nav > .open > a,
   .navbar-default .navbar-nav > .active > a {
-    background-image: -webkit-linear-gradient(top, #dbdbdb 0%, #e2e2e2 100%);
-    background-image: -o-linear-gradient(top, #dbdbdb 0%, #e2e2e2 100%);
-    background-image: linear-gradient(to bottom, #dbdbdb 0%, #e2e2e2 100%);
+    background-image: -webkit-linear-gradient(top, #e69205 0%, #f59b05 100%);
+    background-image: -o-linear-gradient(top, #e69205 0%, #f59b05 100%);
+    background-image: linear-gradient(to bottom, #e69205 0%, #f59b05 100%);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDBDBDB', endColorstr='#FFE2E2E2', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE69205', endColorstr='#FFF59B05', GradientType=0);
     -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075); }
 
@@ -7703,30 +7703,31 @@ html, body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -150px;
+  margin: 0 auto -100px;
   /* Pad bottom by footer height */
-  padding: 0 0 150px; }
+  padding: 0 0 100px; }
 
 footer {
   bottom: 0px;
   width: 100%;
-  height: 150px;
+  height: 100px;
   background-color: #4d4d4d;
   color: #fff; }
   footer .footer {
-    padding-top: 32px;
+    padding-top: 0;
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px; }
   footer .logo-pitagoras {
     margin-top: 20px;
     float: left; }
+    footer .logo-pitagoras img {
+      width: 75px; }
   footer .logo-kroton {
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 20px;
     float: left;
-    width: 82px;
-    height: 60px; }
+    height: 15px; }
   footer a {
     color: white;
     text-decoration: none; }
@@ -7735,6 +7736,8 @@ footer {
       text-decoration: underline; }
   footer .esc2, footer .esc2 img {
     float: right; }
+  footer .esc2 {
+    padding-top: 12px; }
 
 @media screen and (max-width: 767px) {
   footer .esc2 img {

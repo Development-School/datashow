@@ -1,0 +1,74 @@
+<div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+      <h3>Informações</h3>
+      </div>
+        <div class="panel-body">
+         <div class="col-sm-6 form-horizontal">
+         <fieldset>
+            <legend>Dados do Professor</legend>
+            <div class="form-group">
+              <label for="nome" class="col-sm-3 control-label">Nome</label>
+              <div class="col-sm-9">
+                <div class="form-control-static"><?= $professor->nome ?></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-9">
+                <div class="form-control-static"><?= $professor->email ?></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cpf" class="col-sm-3 control-label">CPF</label>
+              <div class="col-sm-9">
+                <div class="form-control-static"><?= format_cpf($professor->cpf) ?></div>
+              </div>
+            </div>
+          </fieldset>
+          </div>
+          <div class="col-sm-6 form-horizontal">
+          <fieldset>
+            <legend>Dados do Datashow</legend>
+            <div class="form-group">
+              <label for="patrimonio" class="col-sm-3 control-label">Patrimonio</label>
+              <div class="col-sm-9">
+                <div class="form-control-static"><?= $datashow->patrimonio ?></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="descricao" class="col-sm-3 control-label">Descrição</label>
+              <div class="col-sm-9">
+                <div class="form-control-static"><?= $datashow->descricao ?></div>
+              </div>
+            </div>
+          </fieldset>
+          </div>
+          <div class="col-sm-12">
+        <?php echo form_open('inicio/confirma', 'class="form-horizontal"'); ?>
+        <?= form_hidden('id_professor', $professor->id); ?>
+        <?= form_hidden('id_patrimonio', $datashow->id); ?>
+            <div class="form-group">
+              <label for="turma" class="col-sm-2 control-label">Turma</label>
+              <div class="col-sm-6">
+                <?php
+                $data = array(
+                    'type'  => 'text',
+                    'name'  => 'turma',
+                    'id'    => 'turma',
+                    'value' => set_value('turma'),
+                    'class' => 'form-control',
+                    'placeholder' => 'Digite a turma',
+                    'required' => 'required'
+                  );
+                echo form_input($data); ?>
+                <?php echo form_error('turma'); ?>
+              </div>
+        <button type="submit" class="btn btn-primary btn-lg pull-right col-sm-3">
+            <i class="fa fa-plus fa-fw fa-lg"></i>&nbsp;Solicitar</button>
+            </div>
+        <?php echo form_close(); ?>
+        </div>
+        </div>
+      </div>
+</div>

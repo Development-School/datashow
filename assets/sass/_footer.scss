@@ -2,7 +2,9 @@ html, body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 }
-$height-footer:150px;
+$top:15px;
+$height-logos:15px;
+$height-footer:100px;
 $height-footer-negative:-$height-footer;
 /*Rodapé do Site*/
 /* Wrapper for page content to push down footer */
@@ -22,7 +24,7 @@ footer{
   background-color: rgb(77, 77, 77);
   color: #fff;
   .footer{
-    padding-top:32px;
+    padding-top:0;
     margin:0 auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -30,13 +32,16 @@ footer{
   .logo-pitagoras{
     margin-top: 20px;
     float: left;
+    img{
+      width: 75px;
+    }
   }
   .logo-kroton{
-    margin-top: 20px;
+    margin-top: $top;
     margin-left: 20px;
     float: left;
-    width: 82px;
-    height: 60px;
+    // width: 82px;
+    height: $height-logos;
   }
   a{
     color: white;
@@ -48,6 +53,9 @@ footer{
   }
   .esc2, .esc2 img{
     float: right;
+  }
+  .esc2{
+    padding-top:12px;
   }
 }
 @media screen and (max-width: $screen-xs-max) {
