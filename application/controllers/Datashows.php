@@ -7,7 +7,10 @@ class Datashows extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Admin_model', 'admin');
-
+    $this->load->model('Datashow_model', 'datashow');
+    if (!$this->session->logado) {
+      redirect('Home','refresh');
+    }
   }
 
   public function index($offset=0)
@@ -47,6 +50,27 @@ class Datashows extends CI_Controller
       $dados['valores'] = $get_users['dados'];
       $dados['paginacao'] = $get_paginacao['paginacao'];
       $this->layout->view('datashows_view', $dados);
+    }
+  }
+  public function cadastrar()
+  {
+    $this->layout->view('cadastrar_datashows_view');
+
+  }
+
+  public function receber()
+  {
+    $this->form_validation->set_rules('patrimonio', 'Patrimonio', 'required');
+    $this->form_validation->set_rules('descricao', 'Descricao', 'required');
+
+
+    if ($this->form_validation->run() == FALSE) {
+      self::cadastrar();
+    } else {
+      $dados = $this->input->post(null,true);
+      ( $this->datashow->add($dados) ) ?
+        setMensagem('Inicio','Cadastro Realizado com sucesso'):
+        setMensagem('Inicio','Ocorreu um erro no Cadastrar', true);
     }
   }
 }

@@ -124,7 +124,7 @@ class MY_Form_validation extends CI_Form_validation
 		$CI =& get_instance();
 		$CI->form_validation->set_message('cpf_unique', 'O %s já está cadastrado no sistema.');
     $CI->db->select('*');
-    $CI->db->from('usuarios');
+    $CI->db->from('professores');
     $CI->db->where('cpf', $cpf);
     $ret = $CI->db->get()->first_row();
     return !(bool) $ret;

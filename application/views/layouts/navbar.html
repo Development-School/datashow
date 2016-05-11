@@ -20,14 +20,25 @@
       <li class="<?php echo !($local == 'inicio') ?: 'active' ?>">
         <a href="<?php echo base_url('inicio');?>"><i class="fa fa-home fa-fw fa-lg hidden-sm"></i>&nbsp;Início</a>
       </li>
-      <li class="<?php echo !($local == 'professores') ?: 'active' ?>">
-        <a href="<?php echo base_url('professores');?>"><i class="fa fa-graduation-cap fa-fw fa-lg hidden-sm"></i>&nbsp;Professores</a>
+
+      <li class="dropdown <?php echo !($local == 'professores') ?: 'active' ?>">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-graduation-cap fa-fw fa-lg hidden-sm"></i>&nbsp;Professores <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo base_url('professores');?>">Listar</a></li>
+          <li><a href="<?php echo base_url('professores/cadastrar');?>">Cadastrar</a></li>
+        </ul>
       </li>
-      <li class="<?php echo !($local == 'datashows') ?: 'active' ?>">
-        <a href="<?php echo base_url('datashows');?>"><i class="fa fa-video-camera fa-fw fa-lg hidden-sm"></i>&nbsp;Datashows</a>
-      </li>
-      <li class="<?php echo !($local == 'relatorios') ?: 'active' ?>">
+
+      <!-- <li class="<?php echo !($local == 'relatorios') ?: 'active' ?>">
         <a href="<?php echo base_url('relatorios');?>"><i class="fa fa-bar-chart fa-fw fa-lg hidden-sm"></i>&nbsp;Relatórios</a>
+      </li> -->
+
+      <li class="dropdown <?php echo !($local == 'datashows') ?: 'active' ?>">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-video-camera fa-fw fa-lg hidden-sm"></i>&nbsp;Datashows <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="<?php echo base_url('datashows');?>">Listar</a></li>
+          <li><a href="<?php echo base_url('datashows/cadastrar');?>">Cadastrar</a></li>
+        </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">

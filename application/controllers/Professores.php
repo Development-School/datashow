@@ -7,6 +7,10 @@ class Professores extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Admin_model', 'admin');
+    $this->load->model('Professor_model', 'professor');
+    if (!$this->session->logado) {
+      redirect('Home','refresh');
+    }
   }
 
   public function index($offset=0)
@@ -46,6 +50,27 @@ class Professores extends CI_Controller
       $dados['valores'] = $get_users['dados'];
       $dados['paginacao'] = $get_paginacao['paginacao'];
       $this->layout->view('professores_view', $dados);
+    }
+  }
+  public function cadastrar()
+  {
+    $this->layout->view('cadastrar_professores_view');
+
+  }
+
+  public function receber()
+  {
+    $this->form_validation->set_rules('nome', 'NOME', 'required');
+    $this->form_validation->set_rules('cpf', 'CPF', 'required|valid_cpf|cpf_unique');
+    $this->form_validation->set_rules('email', 'EMAIL', 'required');
+
+    if ($this->form_validation->run() == FALSE) {
+      self::cadastrar();
+    } else {
+      $dados = $this->input->post(null,true);
+      ( $this->professor->add($dados) ) ?
+        setMensagem('Inicio','Cadastro Realizado com sucesso'):
+        setMensagem('Inicio','Ocorreu um erro no Cadastrar', true);
     }
   }
 }

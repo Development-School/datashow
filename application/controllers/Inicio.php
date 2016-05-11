@@ -7,6 +7,9 @@ class Inicio extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Admin_model', 'admin');
+    if (!$this->session->logado) {
+      redirect('Home','refresh');
+    }
   }
 
   public function solicitar()
@@ -79,13 +82,21 @@ class Inicio extends CI_Controller
     $get_users = $this->admin->getPagSolicitacao($busca, $get_paginacao['inicio'], $get_paginacao['qtidade_re']);
 
     if ($get_users['dados'] == null) {
-      setMensagem('inicio','Nenhum Resultado encontrado', true, 10000);
+      setMensagem('inicio','Nenhum Resultado encontrado', true);
     }
     else{
       $dados['valores'] = $get_users['dados'];
       $dados['paginacao'] = $get_paginacao['paginacao'];
       $this->layout->view('inicio_view', $dados);
     }
+  }
+
+  public function entregar($id='')
+  {
+    $dados['status'] = 'Devolvido';
+    ( $this->admin->entregar($id, $dados) ) ?
+      setMensagem('inicio','Datashow Entregue com Sucesso'):
+      setMensagem('inicio','Ocorreu um erro', true);
   }
 }
 

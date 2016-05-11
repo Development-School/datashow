@@ -31,7 +31,7 @@
               <th>Nome</th>
               <th>CPF</th>
               <th>Email</th>
-              <th>Abrir</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -44,8 +44,8 @@
               <td><?php echo $v->nome; ?></td>
               <td><?php echo format_cpf($v->cpf); ?></td>
               <td><?php echo $v->email; ?></td>
-              <td><a class="btn btn-primary" href="<?= base_url('admin/ver/'.$v->id);?>">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Abrir
+              <td><a class="btn btn-primary" href="<?= base_url('professores/editar/'.$v->id);?>">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Editar
               </a></td>
             </tr>
           <?php endforeach ?>

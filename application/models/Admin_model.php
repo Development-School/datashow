@@ -10,6 +10,12 @@ class Admin_model extends MY_Model
     $this->tabela2 = "veiculo";
   }
 
+  public function entregar($id, $dados)
+  {
+    $this->db->where('id', $id);
+    return $this->db->update('solicitacao', $dados);
+  }
+
   public function solicitacao($dados)
   {
     return $this->db->insert('solicitacao', $dados);
@@ -52,9 +58,9 @@ class Admin_model extends MY_Model
     if ($inicio !== NULL) {
       $this->db->limit($quantidade, $inicio);
     }
-    $this->db->select('*');
-    $this->db->from('solicitacao');
-    $this->db->join('professores', 'professores.id = solicitacao.id_professor', 'join');
+    $this->db->select('a.id, a.horario, a.turma, a.status, a.id_patrimonio, a.id_professor, b.nome, b.email, b.cpf');
+    $this->db->from('solicitacao as a');
+    $this->db->join('professores as b', 'a.id_professor = b.id', 'inner');
     $this->db->like('horario', $nomebusca);
     $sql = $this->db->get();
     return array('inicio' => $inicio, 'total' => $sql->num_rows(), 'dados' => $sql->result() );

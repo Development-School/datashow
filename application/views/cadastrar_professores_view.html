@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <h3>Cadastrar Professores</h3>
+      </div>
+      <div class="panel-body">
+         <?php echo form_open('professores/receber','class="form-horizontal"');  ?>
+         <div class="form-group <?php if (form_error('nome')) { echo 'has-error';} ?>">
+        <label for="nome" class="col-sm-2 control-label">Nome Completo</label>
+        <div class="col-sm-10">
+          <?php
+          $data = array(
+              'type'  => 'text',
+              'name'  => 'nome',
+              'id'    => 'nome',
+              'value' => set_value('nome'),
+              'class' => 'form-control',
+              'placeholder' => 'Digite seu nome'
+            );
+          echo form_input($data); ?>
+          <?php echo form_error('nome'); ?>
+        </div>
+      </div>
+      <div class="form-group <?php if (form_error('cpf')) { echo 'has-error';} ?>">
+        <label for="cpf" class="col-sm-2 control-label">CPF</label>
+        <div class="col-sm-10">
+          <?php
+          $data = array(
+              'type'  => 'text',
+              'name'  => 'cpf',
+              'id'    => 'cpf',
+              'value' => set_value('cpf'),
+              'class' => 'form-control',
+              'placeholder' => 'Digite seu cpf'
+            );
+          echo form_input($data); ?>
+          <?php echo form_error('cpf'); ?>
+        </div>
+      </div>
+      <div class="form-group <?php if (form_error('email')) { echo 'has-error';} ?>">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <?php
+          $data = array(
+              'type'  => 'email',
+              'name'  => 'email',
+              'id'    => 'email',
+              'value' => set_value('email'),
+              'class' => 'form-control',
+              'placeholder' => 'Digite seu email'
+            );
+          echo form_input($data); ?>
+
+          <?php echo form_error('email'); ?>
+        </div>
+      </div>
+        <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-warning btn-lg col-sm-3">
+          Cadastrar</button>
+        </div>
+      </div>
+
+          <?php echo form_close(); ?>
+      </div>
+    </div>
+</div>
